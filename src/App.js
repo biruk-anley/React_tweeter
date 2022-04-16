@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useState } from "react";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [name, setTextarea] = useState("Type some word");
+  const [text, setText] = useState("Type some word");
+  
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    text = setTextarea(event.target.value);
+  
+    
+    
+    
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>head</h2>
+
+      <textarea  onChange={handleSubmit} cols="30" rows="10"></textarea>
+      <input type="submit" />
+      <h2>The thing you write is {name} </h2>
+      <h4>{text}</h4>
+    </form>
+  );
+
+}
 export default App;
